@@ -16,7 +16,10 @@ class Option {
 
   @ManyToOne(() => Question)
   @JoinColumn({ name: 'id' })
-  question_id: Question;
+  question: Question;
+
+  @Column()
+  question_id: string;
 
   @Column()
   value: string;

@@ -19,7 +19,10 @@ class Question {
 
   @ManyToOne(() => Exam)
   @JoinColumn({ name: 'id' })
-  exam_id: Exam;
+  exam: Exam;
+
+  @Column()
+  exam_id: string;
 
   @CreateDateColumn()
   created_at: Date;

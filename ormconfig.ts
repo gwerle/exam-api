@@ -1,7 +1,7 @@
 export = {
   host: 'localhost',
   type: 'postgres',
-  port: 5432,
+  port: process.env.DB_PORT,
   username: 'postgres',
   password: 'docker',
   database: 'postgres',

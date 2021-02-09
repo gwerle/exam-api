@@ -1,13 +1,14 @@
 import { getRepository, UpdateResult } from 'typeorm';
+import { anyNonNil } from 'is-uuid';
 import Exam from '../models/Exam';
-import { EXAM_TYPE } from '../interfaces';
+import { ExamType } from '../interfaces';
 import AppError from '../errors/AppError';
 
 interface Request {
   id: string;
   name: string;
   description?: string;
-  type: EXAM_TYPE;
+  type: ExamType;
 }
 
 class UpdateExamService {
@@ -18,6 +19,10 @@ class UpdateExamService {
     type,
   }: Request): Promise<UpdateResult> {
     const examsRepository = getRepository(Exam);
+
+    if (!anyNonNil(id)) {
+      throw new AppError('UUID inválido');
+    }
 
     const item = await examsRepository.findOne(id);
 

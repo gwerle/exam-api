@@ -39,9 +39,9 @@ examsRoutes.put('/:id', async (request, response) => {
 examsRoutes.delete('/:id', async (request, response) => {
   const { id } = request.params;
 
-  const updateExam = new DeleteExamService();
+  const deleteExam = new DeleteExamService();
 
-  await updateExam.execute({ id });
+  await deleteExam.execute({ id });
 
   return response.status(204).send();
 });

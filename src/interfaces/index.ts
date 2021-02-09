@@ -1,1 +1,1 @@
-export type EXAM_TYPE = 'ONLINE' | 'OFFLINE';
+export type ExamType = 'ONLINE' | 'OFFLINE';

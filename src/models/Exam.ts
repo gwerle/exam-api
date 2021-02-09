@@ -5,7 +5,7 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { EXAM_TYPE } from '../interfaces';
+import { ExamType } from '../interfaces';
 
 @Entity('exams')
 class Exam {
@@ -23,7 +23,7 @@ class Exam {
     type: 'enum',
     enum: ['ONLINE', 'OFFLINE'],
   })
-  type: EXAM_TYPE;
+  type: ExamType;
 
   @CreateDateColumn()
   created_at: Date;
